@@ -2,26 +2,44 @@
 
 This guide will help you get started with Spec-Driven Development using Spec Kit.
 
-> NEW: All automation scripts now provide both Bash (`.sh`) and PowerShell (`.ps1`) variants. The `specify` CLI auto-selects based on OS unless you pass `--script sh|ps`.
+## The 6-Step Process
 
-## The 4-Step Process
+### 1. Install Specify CLI
 
-### 1. Install Specify
+Choose your preferred installation method:
 
-Initialize your project depending on the coding agent you're using:
+#### Option 1: Persistent Installation (Recommended)
+
+Install once and use everywhere:
+
+```bash
+uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+```
+
+Then use the tool directly:
+
+```bash
+specify init <PROJECT_NAME>
+specify check
+```
+
+#### Option 2: One-time Usage
+
+Run directly without installing:
 
 ```bash
 uvx --from git+https://github.com/github/spec-kit.git specify init <PROJECT_NAME>
 ```
 
-Pick script type explicitly (optional):
+### 2. Establish Project Principles
+
+Launch your AI assistant in the project directory. Use the `/speckit.constitution` command to create your project's governing principles:
 
 ```bash
-uvx --from git+https://github.com/github/spec-kit.git specify init <PROJECT_NAME> --script ps  # Force PowerShell
-uvx --from git+https://github.com/github/spec-kit.git specify init <PROJECT_NAME> --script sh  # Force POSIX shell
+/speckit.constitution Create principles focused on code quality, testing standards, user experience consistency, and performance requirements
 ```
 
-### 2. Create the Spec
+### 3. Create the Specification
 
 Use the `/speckit.specify` command to describe what you want to build. Focus on the **what** and **why**, not the tech stack.
 
@@ -29,7 +47,7 @@ Use the `/speckit.specify` command to describe what you want to build. Focus on 
 /speckit.specify Build an application that can help me organize my photos in separate photo albums. Albums are grouped by date and can be re-organized by dragging and dropping on the main page. Albums are never in other nested albums. Within each album, photos are previewed in a tile-like interface.
 ```
 
-### 3. Create a Technical Implementation Plan
+### 4. Create a Technical Implementation Plan
 
 Use the `/speckit.plan` command to provide your tech stack and architecture choices.
 
@@ -37,9 +55,21 @@ Use the `/speckit.plan` command to provide your tech stack and architecture choi
 /speckit.plan The application uses Vite with minimal number of libraries. Use vanilla HTML, CSS, and JavaScript as much as possible. Images are not uploaded anywhere and metadata is stored in a local SQLite database.
 ```
 
-### 4. Break Down and Implement
+### 5. Break Down into Tasks
 
-Use `/speckit.tasks` to create an actionable task list, then ask your agent to implement the feature.
+Use `/speckit.tasks` to create an actionable task list from your implementation plan.
+
+```bash
+/speckit.tasks
+```
+
+### 6. Execute Implementation
+
+Use `/speckit.implement` to execute all tasks and build your feature according to the plan.
+
+```bash
+/speckit.implement
+```
 
 ## Detailed Example: Building Taskify
 
@@ -105,8 +135,24 @@ to be doing that are obvious from reading this. Because I don't know if there's 
 Finally, implement the solution:
 
 ```text
-implement specs/002-create-taskify/plan.md
+/speckit.implement
 ```
+
+## Available Slash Commands
+
+After running `specify init`, your AI coding agent will have access to these slash commands:
+
+### Core Commands
+- `/speckit.constitution` - Create or update project governing principles
+- `/speckit.specify` - Define what you want to build
+- `/speckit.plan` - Create technical implementation plans
+- `/speckit.tasks` - Generate actionable task lists
+- `/speckit.implement` - Execute all tasks to build the feature
+
+### Optional Commands
+- `/speckit.clarify` - Clarify underspecified areas
+- `/speckit.analyze` - Cross-artifact consistency & coverage analysis
+- `/speckit.checklist` - Generate custom quality checklists
 
 ## Key Principles
 

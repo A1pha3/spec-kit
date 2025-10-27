@@ -1,0 +1,29 @@
+# 中文文档目录
+
+# 首页
+- name: 首页
+  href: index.md
+
+# 快速开始
+- name: 快速开始
+  items:
+    - name: 快速上手指南
+      href: quickstart.md
+    - name: 安装与配置指南
+      href: installation.md
+
+# CLI 参考
+- name: CLI 命令详解
+  href: cli-reference.md
+
+# 代码结构
+- name: 代码结构解析
+  href: code-structure.md
+
+# 设计哲学
+- name: 设计哲学与最佳实践
+  href: design-philosophy.md
+
+# 常见问题
+- name: 常见问题解答
+  href: faq.md
